@@ -1,5 +1,7 @@
 <img src = ".github/logo.svg" width = "100%">
 
+    Tinder copy for devs, implementing backend, frontend and mobile applications
+
 ## Technologies
 
 - Express server
@@ -7,6 +9,10 @@
 - ReactJS library
 - React Native lib
 - Socket IO lib (for realtime applications)
+
+<p align="center">
+    <img src = ".github/web.png" width = "50%" align = "center">
+</p>
 
 ## Getting started
 
