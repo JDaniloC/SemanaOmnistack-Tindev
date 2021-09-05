@@ -5,23 +5,30 @@ module.exports = {
     async index(req, res) {
         const { user } = req.headers;
 
-        const loggedDev = await Dev.findById(user);
+        try {
+            const loggedDev = await Dev.findById(user);
 
-        const users = await Dev.find({
-            $and: [
-                { _id: { $ne: user } },
-                { _id: { $nin: loggedDev.likes } },
-                { _id: { $nin: loggedDev.dislikes } },
-            ]
-        })
-
-        return res.json(users);
+            const users = await Dev.find({
+                $and: [
+                    { _id: { $ne: user } },
+                    { _id: { $nin: loggedDev.likes } },
+                    { _id: { $nin: loggedDev.dislikes } },
+                ]
+            })
+    
+            return res.json(users);
+        } catch (err) {
+            return res.status(301).json([]);
+        }
     },
 
     async store(req, res) {
-        const { username } = req.body;
+        let { username: tempUsername } = req.body;
+        const username = tempUsername.toLowerCase();
 
-        const userExists = await Dev.findOne({ user: username });
+        const userExists = await Dev.findOne({ 
+            user: username
+        });
 
         if (userExists) {
             return res.json(userExists);

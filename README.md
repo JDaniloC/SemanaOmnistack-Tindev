@@ -1,54 +1,36 @@
-# SemanaOmnistack-Tindev
-An clone of tinder using Express as backend, React as web and React native for mobile
+<img src = ".github/logo.svg" width = "100%">
+
+## Technologies
+
+- Express server
+- MongoDB database
+- ReactJS library
+- React Native lib
+- Socket IO lib (for realtime applications)
+
+## Getting started
+
+1. Clone this repo using following the instructions in the green button
+2. Move yourself to the directory and make sure you have npm installed
+3. Install yarn using `npm install -g yarn`
 
 ## How to run the backend
 
-Go to backend folder: 
-` cd backend `
-
-And install the dependencies running:
-` yarn `
-
-So, create a MongoDB collection called `tindev`.
-And fill your `.env` file with the port and database uri, like:
+1. Go to backend folder running ` cd backend `
+2. Install the dependencies running ` yarn `
+3. Create a MongoDB collection and get the URI
+4. Create a `.env` file in the root of the project
+5. Fill your `.env` with the port and database uri, like:
 
 ```py
 PORT = 3333
 DATABASE = mongodb+srv://
 ```
 
-## Backend routes
+6. Finally run `yarn dev`
 
-### GET /devs/
-    Get all devs which the given user don't interacted yet.
+## How to tun the frontend
 
-    :headers 
-        user - The _id of the user
-    :params
-    :body
-
-### POST /devs/
-    Creates an user based on their github profile
-
-    :headers 
-    :params
-    :body
-        username - The github profile name
-
-### POST /devs/:id/likes/
-    Give an user like to another
-
-    :headers 
-        user - The _id of the user that will like
-    :params
-        devId - The _id of the user that will be liked
-    :body
-
-### POST /devs/:id/dislikes/
-    Give an user dislike to another
-
-    :headers 
-        user - The _id of the user that will dislike
-    :params
-        devId - The _id of the user that will be disliked
-    :body
+1. Go to frontend folder: ` cd frontend `
+2. Install the dependencies running ` yarn `
+3. Make sure your backend is running and run `yarn start`
